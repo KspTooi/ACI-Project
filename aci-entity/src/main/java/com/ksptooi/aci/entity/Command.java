@@ -28,7 +28,7 @@ public class Command {
     private Date createTime = null;
 
     @Column
-    private String updateTime = null;
+    private Date updateTime = null;
 
     @Column
     private Integer createByAccount = null;
@@ -103,11 +103,11 @@ public class Command {
         this.createTime = createTime;
     }
 
-    public String getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(String updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
