@@ -4,6 +4,8 @@ import com.google.inject.Inject
 import com.ksptooi.aci.entity.Command
 import com.ksptooi.aci.jpa.mapper.AdvEntityManager
 import com.ksptooi.mapper.CommandMapper
+import java.lang.Exception
+import java.lang.RuntimeException
 import java.util.*
 
 class CommandServiceBlock @Inject constructor(aem:AdvEntityManager):CommandService {
@@ -19,6 +21,10 @@ class CommandServiceBlock @Inject constructor(aem:AdvEntityManager):CommandServi
 
     override fun createCmd(name: String, type: String, desc: String): Command {
 
+        if(mapper.exists(name)){
+            throw RuntimeException("创建失败,名称已存在!")
+        }
+
         val cmd = Command()
 
         cmd.name = name
@@ -33,8 +39,16 @@ class CommandServiceBlock @Inject constructor(aem:AdvEntityManager):CommandServi
         return aem.save(cmd)
     }
 
-    override fun getCmdByName(name: String): Command {
-        return mapper.getCommandByName(name)
+    override fun getCmdByName(name: String): Command? {
+
+        try{
+
+            return mapper.getCommandByName(name);
+
+        }catch (e:Exception){
+            e.printStackTrace()
+            return null
+        }
     }
 
 

@@ -8,6 +8,7 @@ import com.ksptooi.aci.service.CommandService
 import com.ksptooi.mapper.CommandMapper
 import org.junit.Before
 import org.junit.Test
+import java.lang.Exception
 
 class UnitTest {
 
@@ -27,7 +28,12 @@ class UnitTest {
     @Test
     fun t1(){
 
-        println(mapper.exists("testCommand"))
+        if(service.getCmdByName("123")!=null){
+            println("获取成功")
+            return
+        }
+
+        println("获取失败")
 
     }
 
