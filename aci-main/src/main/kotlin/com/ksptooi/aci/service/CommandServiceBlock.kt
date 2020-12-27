@@ -33,5 +33,9 @@ class CommandServiceBlock @Inject constructor(aem:AdvEntityManager):CommandServi
         return aem.save(cmd)
     }
 
+    override fun getCmdByName(name: String): Command {
+        return mapper.getCommandByName(name)
+    }
+
 
 }

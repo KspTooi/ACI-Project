@@ -6,4 +6,6 @@ interface CommandMapper {
 
     fun getCommandByName(name:String):Command
 
+    fun exists(name:String):Boolean
+
 }
