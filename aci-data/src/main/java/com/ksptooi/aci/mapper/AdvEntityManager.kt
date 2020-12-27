@@ -6,4 +6,10 @@ interface AdvEntityManager<T> {
 
     fun save(obj:T):T
 
+    fun getByPK(primaryKey:Int):T;
+
+    fun getList():List<T>
+
+    fun getList(jpql:String):List<T>
+
 }

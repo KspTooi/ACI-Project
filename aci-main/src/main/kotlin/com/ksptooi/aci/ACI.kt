@@ -17,14 +17,10 @@ fun main() {
 
     val aem = inject.getInstance(AdvEntityManager::class.java)
 
-    val em = aem.setTarget(Command::class.java);
+    aem.setTarget(Command::class.java)
 
-    val cmd = Command()
+    val pk =aem.getList()
 
-    cmd.name = "cmd"
-
-    em.save(cmd);
-
-    println(aem)
+    println(pk)
 
 }

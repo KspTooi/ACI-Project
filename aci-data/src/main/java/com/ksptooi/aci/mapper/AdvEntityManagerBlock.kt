@@ -29,4 +29,19 @@ open class AdvEntityManagerBlock<T> @Inject constructor(persistService: PersistS
     }
 
 
+    override fun getByPK(primaryKey: Int): T {
+        return em.find(this.target,primaryKey) as T
+    }
+
+    override fun getList(): List<T> {
+        val ret = em.createQuery("from "+ this.target.simpleName);
+        return ret.resultList as List<T>;
+    }
+
+    override fun getList(jpql: String): List<T> {
+        val ret = em.createQuery(jpql);
+        return ret.resultList as List<T>;
+    }
+
+
 }
