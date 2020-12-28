@@ -3,6 +3,7 @@ package com.ksptooi.aci.service.cli
 import com.google.inject.Inject
 import com.ksptooi.aci.service.CommandService
 import org.slf4j.Logger
+import java.io.BufferedReader
 
 class CliServiceBlock:CliService {
 
@@ -13,6 +14,8 @@ class CliServiceBlock:CliService {
     @Inject
     lateinit var log:Logger
 
+    @Inject
+    lateinit var br:BufferedReader
 
 
     override fun runCli() {
@@ -21,14 +24,16 @@ class CliServiceBlock:CliService {
 
         while (true){
 
-
+            cliInput()
 
         }
 
     }
 
     override fun cliInput(): String {
-        TODO("Not yet implemented")
+        print("ACU:")
+        val i = br.readLine()
+        return i;
     }
 
     override fun cliHideInput(): String {
