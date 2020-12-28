@@ -16,7 +16,7 @@ public class Command {
     private String name = null;
 
     @Column
-    private String type = null;
+    private String engine = null;
 
     @Transient
     private List<Target> targets = null;
@@ -44,11 +44,11 @@ public class Command {
         return "Command{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
+                ", engine='" + engine + '\'' +
                 ", targets=" + targets +
                 ", description='" + description + '\'' +
                 ", createTime=" + createTime +
-                ", updateTime='" + updateTime + '\'' +
+                ", updateTime=" + updateTime +
                 ", createByAccount=" + createByAccount +
                 ", permissions='" + permissions + '\'' +
                 ", remove=" + remove +
@@ -71,12 +71,12 @@ public class Command {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public String getEngine() {
+        return engine;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setEngine(String engine) {
+        this.engine = engine;
     }
 
     public List<Target> getTargets() {

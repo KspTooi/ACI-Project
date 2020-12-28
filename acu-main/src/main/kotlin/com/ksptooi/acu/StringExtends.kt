@@ -1,4 +1,4 @@
-package com.ksptooi.acu.method.extends
+package com.ksptooi.acu
 
 import com.ksptooi.acu.entity.command.CommandIO
 import kotlin.jvm.Throws
@@ -27,7 +27,7 @@ object StringExtends {
 
         try{
             cmdName = this.replace(">"+this.getParam('>'),"")
-        }catch (e:Exception){
+        }catch (e:Exception) {
             cmdName = this
         }
 

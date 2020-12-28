@@ -3,8 +3,9 @@ package com.ksptooi.acu
 import com.google.inject.Guice
 import com.ksptooi.acu.module.ExportAcuMain
 import com.ksptooi.acu.service.cli.CliService
+import org.slf4j.Logger
 
-class ACI {
+class ACU {
 
 }
 
@@ -15,14 +16,12 @@ fun main() {
 
     val inject = Guice.createInjector(ExportAcuMain())
 
+    val log = inject.getInstance(Logger::class.java)
+
     val cli = inject.getInstance(CliService::class.java)
 
+    log.info("启动 - 辅助控制单元访问接口")
     cli.runCli()
-/*    val service = inject.getInstance(CommandService::class.java)
-
-    val createCmd = service.createCmd("testCommand", "example_cmd", "用于测试的命令")
-
-    println("主键回填值:"+createCmd.id)*/
 
 }
 

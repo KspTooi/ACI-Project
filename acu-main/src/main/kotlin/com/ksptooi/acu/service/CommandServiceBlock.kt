@@ -19,7 +19,7 @@ class CommandServiceBlock @Inject constructor(aem:AdvEntityManager):CommandServi
         aem.setTarget(Command::class.java)
     }
 
-    override fun createCmd(name: String, type: String, desc: String): Command {
+    override fun createCmd(name: String, engine: String, desc: String): Command {
 
         if(mapper.exists(name)){
             throw RuntimeException("创建失败,名称已存在!")
@@ -28,7 +28,7 @@ class CommandServiceBlock @Inject constructor(aem:AdvEntityManager):CommandServi
         val cmd = Command()
 
         cmd.name = name
-        cmd.type = type
+        cmd.engine = engine
         cmd.description = desc
         cmd.createTime = Date()
         cmd.updateTime = Date()

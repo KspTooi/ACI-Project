@@ -2,7 +2,7 @@ package com.ksptooi.acu.kotlin
 
 import com.google.inject.Guice
 import com.google.inject.Injector
-import com.ksptooi.acu.method.extends.StringExtends.getParamList
+import com.ksptooi.acu.StringExtends.getParamList
 import com.ksptooi.acu.module.ExportAcuMain
 import com.ksptooi.acu.service.CommandService
 import com.ksptooi.mapper.CommandMapper
