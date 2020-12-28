@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ksptooi</groupId>
-    <artifactId>ACI-Project</artifactId>
+    <artifactId>acu-project</artifactId>
     <packaging>pom</packaging>
     <version>1.0S</version>
     <modules>
-        <module>aci-main</module>
-        <module>aci-entity</module>
-        <module>aci-data</module>
+        <module>acu-data</module>
+        <module>acu-main</module>
+        <module>acu-entity</module>
     </modules>
 
     <properties>
