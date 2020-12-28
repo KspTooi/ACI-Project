@@ -24,4 +24,12 @@ public class CommandIO {
     public void setParam(List<String> param) {
         this.param = param;
     }
+
+    @Override
+    public String toString() {
+        return "CommandIO{" +
+                "name='" + name + '\'' +
+                ", param=" + param +
+                '}';
+    }
 }

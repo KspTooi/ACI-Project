@@ -1,16 +1,54 @@
 package com.ksptooi.acu.method.extends
 
+import com.ksptooi.acu.entity.command.CommandIO
 import kotlin.jvm.Throws
 
 object StringExtends {
 
 
     /**
+     * 从字符串中获取CommandIO (InputObject)
+     */
+    fun String.getCommandIO():CommandIO{
+
+        val cio = CommandIO()
+        cio.name = this.getCommandName()
+        cio.param = this.getParamList()
+
+        return cio
+    }
+
+    /**
+     * 从当前字符串中获取到命令名
+     */
+    fun String.getCommandName():String{
+
+        var cmdName = this
+
+        try{
+            cmdName = this.replace(">"+this.getParam('>'),"")
+        }catch (e:Exception){
+            cmdName = this
+        }
+
+        return cmdName
+    }
+
+
+    /**
      * 使用默认的分隔符获取所有参数集合
      */
-    @Throws(Exception::class)
     fun String.getParamList():List<String>{
-        return this.getParamList('>',',')
+
+        var paramList:List<String>
+
+        try {
+            paramList = this.getParamList('>',',')
+        }catch (e:Exception){
+            paramList = ArrayList<String>()
+        }
+
+        return paramList
     }
 
 

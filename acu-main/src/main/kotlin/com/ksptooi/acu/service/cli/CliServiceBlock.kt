@@ -1,6 +1,7 @@
 package com.ksptooi.acu.service.cli
 
 import com.google.inject.Inject
+import com.ksptooi.acu.method.extends.StringExtends.getCommandIO
 import com.ksptooi.acu.service.CommandService
 import org.slf4j.Logger
 import java.io.BufferedReader
@@ -22,8 +23,11 @@ class CliServiceBlock:CliService {
 
         log.info("启动 - 辅助控制单元命令总线")
 
+        var inputText = "";
+
         while (true){
-            cliInput()
+            inputText = cliInput()
+            println(inputText.getCommandIO())
         }
 
     }

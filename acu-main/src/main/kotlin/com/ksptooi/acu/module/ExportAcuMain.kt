@@ -6,7 +6,7 @@ import com.ksptooi.acu.service.CommandServiceBlock
 import com.ksptooi.acu.service.cli.CliService
 import com.ksptooi.acu.service.cli.CliServiceBlock
 
-class ExportAciMain:AbstractModule() {
+class ExportAcuMain:AbstractModule() {
 
     override fun configure() {
 

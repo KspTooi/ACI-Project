@@ -2,10 +2,8 @@ package com.ksptooi.acu.kotlin
 
 import com.google.inject.Guice
 import com.google.inject.Injector
-import com.ksptooi.acu.method.extends.StringExtends.getCount
-import com.ksptooi.acu.method.extends.StringExtends.getParam
 import com.ksptooi.acu.method.extends.StringExtends.getParamList
-import com.ksptooi.acu.module.ExportAciMain
+import com.ksptooi.acu.module.ExportAcuMain
 import com.ksptooi.acu.service.CommandService
 import com.ksptooi.mapper.CommandMapper
 import org.junit.Before
@@ -24,7 +22,7 @@ class UnitTest {
 
     @Before
     fun init(){
-        this.inject = Guice.createInjector(ExportAciMain())
+        this.inject = Guice.createInjector(ExportAcuMain())
         this.service = inject.getInstance(CommandService::class.java)
         this.mapper = inject.getInstance(CommandMapper::class.java)
         this.log = inject.getInstance(Logger::class.java)
