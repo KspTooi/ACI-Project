@@ -8,12 +8,12 @@
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.ksptooi.aci.entity.Command</class>
+        <class>com.ksptooi.acu.entity.command.Command</class>
 
         <properties>
             <property name="connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
 
-            <property name="hibernate.connection.url" value="jdbc:mysql://127.0.0.1:3306/aci?serverTimezone=Asia/Shanghai"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://127.0.0.1:3306/acu?serverTimezone=Asia/Shanghai"/>
             <property name="hibernate.connection.username" value="devServer"/>
             <property name="hibernate.connection.password" value="devServer"/>
             <property name="hibernate.connection.autocommit" value="true" />

@@ -1,9 +1,7 @@
 package com.ksptooi.mapper
 
 import com.google.inject.Inject
-import com.google.inject.persist.PersistService
-import com.ksptooi.aci.entity.Command
-import com.ksptooi.aci.jpa.mapper.AdvEntityManager
+import com.ksptooi.acu.entity.command.Command
 import javax.persistence.EntityManager
 import javax.persistence.NoResultException
 

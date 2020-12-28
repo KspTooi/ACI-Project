@@ -1,7 +1,5 @@
 package com.ksptooi.mapper
 
-import com.ksptooi.aci.entity.Command
-
 interface AbstractMapper<T> {
 
     fun list():List<T>
