@@ -3,7 +3,9 @@ package com.ksptooi.acu.kotlin
 import com.google.inject.Guice
 import com.google.inject.Injector
 import com.ksptooi.acu.StringExtends.getParamList
+import com.ksptooi.acu.cmd.engines.BasicCommandEngine
 import com.ksptooi.acu.module.ExportAcuMain
+import com.ksptooi.acu.service.CmdEngineService
 import com.ksptooi.acu.service.CommandService
 import com.ksptooi.mapper.CommandMapper
 import org.junit.Before
@@ -20,12 +22,15 @@ class UnitTest {
 
     lateinit var log:Logger
 
+    lateinit var engineService:CmdEngineService
+
     @Before
     fun init(){
         this.inject = Guice.createInjector(ExportAcuMain())
         this.service = inject.getInstance(CommandService::class.java)
         this.mapper = inject.getInstance(CommandMapper::class.java)
         this.log = inject.getInstance(Logger::class.java)
+        this.engineService = inject.getInstance(CmdEngineService::class.java)
     }
 
     @Test
@@ -43,9 +48,11 @@ class UnitTest {
     @Test
     fun t3(){
 
+        val engine = BasicCommandEngine()
 
-        println("commandExample>aaa".getParamList())
 
+        engineService.register(engine)
+        engineService.register(engine)
 
 
     }

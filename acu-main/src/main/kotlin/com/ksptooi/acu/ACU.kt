@@ -22,6 +22,7 @@ fun main() {
 
     log.info("启动 - 辅助控制单元访问接口")
     cli.runCli()
+    cli.cliInfo("")
 
 }
 

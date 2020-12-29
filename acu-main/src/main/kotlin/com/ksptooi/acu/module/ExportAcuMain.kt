@@ -1,6 +1,8 @@
 package com.ksptooi.acu.module
 
 import com.google.inject.AbstractModule
+import com.ksptooi.acu.service.CmdEngineService
+import com.ksptooi.acu.service.CmdEngineServiceBlock
 import com.ksptooi.acu.service.CommandService
 import com.ksptooi.acu.service.CommandServiceBlock
 import com.ksptooi.acu.service.cli.CliService
@@ -19,6 +21,7 @@ class ExportAcuMain:AbstractModule() {
 
         bind(CommandService::class.java).to(CommandServiceBlock::class.java)
         bind(CliService::class.java).to(CliServiceBlock::class.java)
+        bind(CmdEngineService::class.java).to(CmdEngineServiceBlock::class.java)
 
     }
 }
