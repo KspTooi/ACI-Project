@@ -9,6 +9,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>com.ksptooi.acu.entity.command.Command</class>
+        <class>com.ksptooi.acu.entity.command.Target</class>
 
         <properties>
             <property name="connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>

@@ -11,7 +11,7 @@ public class Target {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id = null;
 
-    @Column
+    @Column(name = "command")
     private Integer command = null;
 
     @Column

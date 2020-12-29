@@ -22,6 +22,8 @@ class CliServiceBlock:CliService {
     @Inject
     lateinit var br:BufferedReader
 
+    var prefix = "ACU:"
+
 
     override fun runCli() {
 
@@ -45,7 +47,7 @@ class CliServiceBlock:CliService {
     }
 
     override fun cliInput(): String {
-        print("ACU:")
+        cliPMsg()
         val i = br.readLine()
         return i;
     }
@@ -54,13 +56,15 @@ class CliServiceBlock:CliService {
         TODO("Not yet implemented")
     }
 
+
     override fun cliConfirm(): Boolean {
         return this.cliConfirm("此操作需要用户确认 y/n ?")
     }
 
+
     override fun cliConfirm(msg: String): Boolean {
 
-        print(msg)
+        cliMsg(msg)
 
         val i = br.readLine();
 
@@ -72,22 +76,17 @@ class CliServiceBlock:CliService {
     }
 
 
+    override fun cliPMsg() {
+        print(prefix)
+    }
 
 
     override fun cliMsg(msg: String) {
-        TODO("Not yet implemented")
+        print(prefix+msg)
     }
 
-    override fun cliInfo(msg: String) {
-        TODO("Not yet implemented")
-    }
-
-    override fun cliWarn(msg: String) {
-        TODO("Not yet implemented")
-    }
-
-    override fun cliError(msg: String) {
-        TODO("Not yet implemented")
+    override fun cliBMsg(msg: String) {
+        println(msg)
     }
 
 

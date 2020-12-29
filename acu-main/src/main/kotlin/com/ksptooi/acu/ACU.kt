@@ -1,6 +1,7 @@
 package com.ksptooi.acu
 
-import com.ksptooi.acu.cmd.engines.DefaultEngine
+import com.ksptooi.acu.cmd.engines.DefaultCreateEngine
+import com.ksptooi.acu.cmd.engines.DefaultSearchEngine
 import com.ksptooi.acu.service.CmdEngineService
 import com.ksptooi.acu.service.cli.CliService
 import org.slf4j.Logger
@@ -21,7 +22,8 @@ fun main() {
 
     val cli = inject.getInstance(CliService::class.java)
 
-    inject.getInstance(CmdEngineService::class.java).register(DefaultEngine())
+    inject.getInstance(CmdEngineService::class.java).register(DefaultSearchEngine())
+    inject.getInstance(CmdEngineService::class.java).register(DefaultCreateEngine())
 
 
     log.info("启动 - 辅助控制单元访问接口")

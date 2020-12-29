@@ -12,12 +12,13 @@ interface CliService {
 
     fun cliConfirm(msg:String):Boolean
 
+
+
+    fun cliPMsg()
+
     fun cliMsg(msg:String)
 
-    fun cliInfo(msg:String)
+    fun cliBMsg(msg: String)
 
-    fun cliWarn(msg:String)
-
-    fun cliError(msg:String)
 
 }

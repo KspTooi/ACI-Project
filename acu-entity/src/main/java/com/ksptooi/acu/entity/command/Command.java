@@ -3,6 +3,8 @@ package com.ksptooi.acu.entity.command;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Entity
 @Table(name = "command")
@@ -18,7 +20,8 @@ public class Command {
     @Column
     private String engine = null;
 
-    @Transient
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "command")
     private List<Target> targets = null;
 
     @Column
@@ -53,6 +56,19 @@ public class Command {
                 ", permissions='" + permissions + '\'' +
                 ", remove=" + remove +
                 '}';
+    }
+
+
+    public Target forTarget(String targetName){
+
+        List<Target> targetStream = this.targets.stream()
+                .filter(f -> f.getTarget().equalsIgnoreCase(targetName)).collect(Collectors.toList());
+
+        if(targetStream.size()<1){
+            return null;
+        }
+
+        return targetStream.get(0);
     }
 
     public Integer getId() {

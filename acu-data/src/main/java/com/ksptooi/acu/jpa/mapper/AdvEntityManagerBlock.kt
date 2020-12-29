@@ -9,7 +9,7 @@ import javax.persistence.EntityManager
 open class AdvEntityManagerBlock @Inject constructor(persistService: PersistService?): AdvEntityManager {
 
     @Inject
-    lateinit var em: EntityManager
+    open lateinit var em: EntityManager
 
     lateinit var target: Class<*>
 

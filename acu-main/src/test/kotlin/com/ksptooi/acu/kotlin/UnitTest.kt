@@ -2,7 +2,7 @@ package com.ksptooi.acu.kotlin
 
 import com.google.inject.Guice
 import com.google.inject.Injector
-import com.ksptooi.acu.cmd.engines.DefaultEngine
+import com.ksptooi.acu.cmd.engines.DefaultSearchEngine
 import com.ksptooi.acu.module.ExportAcuMain
 import com.ksptooi.acu.service.CmdEngineService
 import com.ksptooi.acu.service.CommandService
@@ -47,7 +47,7 @@ class UnitTest {
     @Test
     fun t3(){
 
-        val engine = DefaultEngine()
+        val engine = DefaultSearchEngine()
 
 
         engineService.register(engine)

@@ -36,7 +36,11 @@ class CmdSchedulerServiceBlock:CmdSchedulerService {
 
         log.info("Target Engine Instance ->>>>> ${engine}")
 
-        engine.invoke(cio,dbCmd)
+        try{
+            engine.invoke(cio,dbCmd)
+        }catch (e:Exception){
+            log.info(e.message)
+        }
 
     }
 
