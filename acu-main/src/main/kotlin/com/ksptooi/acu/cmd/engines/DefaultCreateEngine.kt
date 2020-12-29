@@ -45,6 +45,16 @@ class DefaultCreateEngine:AcuEngine {
             cliService.cliBMsg("命令创建成功! -> ${cmd.name}")
         }
 
+        cmd.forTarget("remove")?.let {
+
+            if(cio.param.size<1){
+                throw Exception("请输入参数. ex: remove>name")
+            }
+
+            service.remove(cio.param[0])
+
+            cliService.cliBMsg("命令移除成功! -> ${cio.param[0]}")
+        }
 
 
         return true

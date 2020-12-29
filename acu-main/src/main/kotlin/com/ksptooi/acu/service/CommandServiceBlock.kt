@@ -1,6 +1,7 @@
 package com.ksptooi.acu.service
 
 import com.google.inject.Inject
+import com.google.inject.persist.Transactional
 import com.ksptooi.acu.cmd.engines.AcuEngine
 import com.ksptooi.acu.entity.command.Command
 import com.ksptooi.acu.entity.command.CommandIO
@@ -8,12 +9,12 @@ import com.ksptooi.acu.entity.command.Target
 import com.ksptooi.acu.jpa.mapper.AdvEntityManager
 import com.ksptooi.mapper.CommandMapper
 import org.slf4j.Logger
-import java.lang.Exception
 import java.lang.RuntimeException
 import java.util.*
 import javax.persistence.EntityManager
+import kotlin.Exception
 
-class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager):CommandService {
+open class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager):CommandService {
 
     @Inject
     lateinit var mapper:CommandMapper
@@ -110,6 +111,20 @@ class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager):CommandS
         query.setParameter("likeName",likeName)
 
         return query.resultList as List<Command>
+    }
+
+
+    @Transactional
+    override fun remove(name: String) {
+
+        if(!mapper.exists(name)){
+            throw Exception("移除失败 命令不存在!")
+        }
+
+        val query = em.createQuery("update Command set remove=1 where name=:name");
+        query.setParameter("name",name)
+        query.executeUpdate()
+
     }
 
 

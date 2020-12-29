@@ -4,6 +4,7 @@ import com.ksptooi.acu.cmd.engines.AcuEngine
 import com.ksptooi.acu.entity.command.Command
 import com.ksptooi.acu.entity.command.CommandIO
 import com.ksptooi.acu.entity.command.Target
+import kotlin.jvm.Throws
 
 interface CommandService {
 
@@ -24,6 +25,9 @@ interface CommandService {
     fun getList():List<Command>
 
     fun getByLikeName(likeName:String):List<Command>
+
+    @Throws(Exception::class)
+    fun remove(name: String)
 
 
 }
