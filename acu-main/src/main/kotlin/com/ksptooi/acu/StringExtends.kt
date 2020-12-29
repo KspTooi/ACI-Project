@@ -6,6 +6,7 @@ import kotlin.jvm.Throws
 object StringExtends {
 
 
+
     /**
      * 从字符串中获取CommandIO (InputObject)
      */

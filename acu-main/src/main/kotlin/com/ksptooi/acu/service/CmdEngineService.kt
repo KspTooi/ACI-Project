@@ -21,7 +21,7 @@ interface CmdEngineService {
     /**
      * 根据名称查找到一个命令引擎实体
      */
-    fun getEngine(engineName:String):CommandEngine?
+    fun getEngine(engineName:String?):CommandEngine?
 
 
     /**

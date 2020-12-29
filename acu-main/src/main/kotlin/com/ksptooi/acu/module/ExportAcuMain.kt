@@ -1,10 +1,8 @@
 package com.ksptooi.acu.module
 
 import com.google.inject.AbstractModule
-import com.ksptooi.acu.service.CmdEngineService
-import com.ksptooi.acu.service.CmdEngineServiceBlock
-import com.ksptooi.acu.service.CommandService
-import com.ksptooi.acu.service.CommandServiceBlock
+import com.google.inject.Scopes
+import com.ksptooi.acu.service.*
 import com.ksptooi.acu.service.cli.CliService
 import com.ksptooi.acu.service.cli.CliServiceBlock
 
@@ -19,9 +17,10 @@ class ExportAcuMain:AbstractModule() {
         install(ExportLogger())
         install(ExportCli())
 
-        bind(CommandService::class.java).to(CommandServiceBlock::class.java)
-        bind(CliService::class.java).to(CliServiceBlock::class.java)
-        bind(CmdEngineService::class.java).to(CmdEngineServiceBlock::class.java)
+        bind(CommandService::class.java).to(CommandServiceBlock::class.java).`in`(Scopes.SINGLETON)
+        bind(CliService::class.java).to(CliServiceBlock::class.java).`in`(Scopes.SINGLETON)
+        bind(CmdEngineService::class.java).to(CmdEngineServiceBlock::class.java).`in`(Scopes.SINGLETON)
+        bind(CmdSchedulerService::class.java).to(CmdSchedulerServiceBlock::class.java).`in`(Scopes.SINGLETON)
 
     }
 }

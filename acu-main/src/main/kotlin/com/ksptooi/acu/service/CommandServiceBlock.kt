@@ -2,16 +2,22 @@ package com.ksptooi.acu.service
 
 import com.google.inject.Inject
 import com.ksptooi.acu.entity.command.Command
+import com.ksptooi.acu.entity.command.CommandIO
 import com.ksptooi.acu.jpa.mapper.AdvEntityManager
 import com.ksptooi.mapper.CommandMapper
+import org.slf4j.Logger
 import java.lang.Exception
 import java.lang.RuntimeException
 import java.util.*
+import kotlin.math.log
 
 class CommandServiceBlock @Inject constructor(aem:AdvEntityManager):CommandService {
 
     @Inject
     lateinit var mapper:CommandMapper
+
+    @Inject
+    lateinit var log: Logger
 
     val aem = aem;
 
@@ -39,18 +45,21 @@ class CommandServiceBlock @Inject constructor(aem:AdvEntityManager):CommandServi
         return aem.save(cmd)
     }
 
-    override fun getCmdByName(name: String): Command? {
+    override fun getCommand(name: String): Command? {
 
         try{
 
             return mapper.getCommandByName(name);
 
         }catch (e:Exception){
-            e.printStackTrace()
+            log.debug(e.message,e)
             return null
         }
     }
 
+    override fun getCommand(cio: CommandIO): Command? {
+        return this.getCommand(cio.name)
+    }
 
 
 }

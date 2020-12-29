@@ -1,15 +1,15 @@
 package com.ksptooi.acu.service
 
+import com.ksptooi.acu.InjectService
 import com.ksptooi.acu.cmd.engines.CommandEngine
 import org.slf4j.Logger
 import java.lang.Exception
 import javax.inject.Inject
-import kotlin.math.log
 
 class CmdEngineServiceBlock @Inject constructor(var log:Logger):CmdEngineService {
 
     init {
-        log.info("启动 - 辅助控制单元命令引擎服务")
+        log.info("启动 - 辅助控制单元引擎服务")
     }
 
     val registList = ArrayList<CommandEngine>()
@@ -26,13 +26,17 @@ class CmdEngineServiceBlock @Inject constructor(var log:Logger):CmdEngineService
             throw Exception("引擎注册失败,该引擎名称已经在注册表中存在.")
         }
 
-        log.info("已注册命令引擎:${cmdEnginee.getName()}")
+        log.info("ACU引擎服务 -> 已注册引擎:${cmdEnginee.getName()}")
+
+        //注入本地服务到引擎内部
+        InjectService.get().injectMembers(cmdEnginee)
 
         registList.add(cmdEnginee)
-
     }
 
-    override fun getEngine(engineName: String): CommandEngine? {
+    override fun getEngine(engineName: String?): CommandEngine? {
+
+        engineName?:throw Exception("引擎名称不能为空")
 
         val hasName = registList.filter { it.getName().equals(engineName,true) }
 

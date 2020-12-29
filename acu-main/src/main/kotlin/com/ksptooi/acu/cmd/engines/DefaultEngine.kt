@@ -1,13 +1,18 @@
 package com.ksptooi.acu.cmd.engines
 
+import com.google.inject.Inject
 import com.ksptooi.acu.entity.command.Command
 import com.ksptooi.acu.entity.command.CommandIO
+import org.slf4j.Logger
 
-class BasicCommandEngine:CommandEngine {
+class DefaultEngine:CommandEngine {
+
+    @Inject
+    lateinit var log: Logger
 
 
     override fun getName(): String {
-        return "basic-cmd-engine"
+        return "default_engine"
     }
 
 
@@ -15,11 +20,8 @@ class BasicCommandEngine:CommandEngine {
 
         println("基本命令引擎调用-------->Invoke")
 
-        println("命令IO实体:${cmdio}")
-        println("命令实体:${cmd}")
 
         println("基本命令引擎调用完成------>Invoke Success")
-
 
         return true
     }
