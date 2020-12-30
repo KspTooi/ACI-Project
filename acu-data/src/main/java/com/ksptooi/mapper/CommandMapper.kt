@@ -8,4 +8,7 @@ interface CommandMapper{
 
     fun exists(name:String):Boolean
 
+    fun list():List<Command>
+
+    fun getLikeName(name: String):List<Command>
 }

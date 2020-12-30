@@ -72,7 +72,6 @@ open class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager):Com
     }
 
 
-
     override fun insertCmd(cmd: Command): Command {
 
         if(mapper.exists(cmd.name)){
@@ -100,17 +99,12 @@ open class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager):Com
 
 
     override fun getList(): List<Command> {
-        return aem.getList()
+        return mapper.list()
     }
 
 
     override fun getByLikeName(likeName: String): List<Command> {
-
-        val query = em.createQuery("from Command where name like concat('%',:likeName,'%') ");
-
-        query.setParameter("likeName",likeName)
-
-        return query.resultList as List<Command>
+        return mapper.getLikeName(likeName)
     }
 
 
@@ -124,7 +118,6 @@ open class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager):Com
         val query = em.createQuery("update Command set remove=1 where name=:name");
         query.setParameter("name",name)
         query.executeUpdate()
-
     }
 
 

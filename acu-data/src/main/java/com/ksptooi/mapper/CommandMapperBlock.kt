@@ -12,7 +12,7 @@ open class CommandMapperBlock:CommandMapper {
 
 
     override fun getCommandByName(name: String): Command {
-        val q = em.createQuery("from Command where name=:name")
+        val q = em.createQuery("from Command where name=:name and remove=0")
         q.setParameter("name",name)
         return q.singleResult as Command;
     }
@@ -26,6 +26,14 @@ open class CommandMapperBlock:CommandMapper {
         }
 
         return true;
+    }
+
+    override fun list(): List<Command> {
+        return em.createQuery("from Command where remove=0").resultList as List<Command>
+    }
+
+    override fun getLikeName(name: String): List<Command> {
+        return em.createQuery("from Command where name like concat('%',${name},'%') and remove=0").resultList as List<Command>
     }
 
 

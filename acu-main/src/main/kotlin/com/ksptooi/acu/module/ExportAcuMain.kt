@@ -21,6 +21,5 @@ class ExportAcuMain:AbstractModule() {
         bind(CliService::class.java).to(CliServiceBlock::class.java).`in`(Scopes.SINGLETON)
         bind(CmdEngineService::class.java).to(CmdEngineServiceBlock::class.java).`in`(Scopes.SINGLETON)
         bind(CmdSchedulerService::class.java).to(CmdSchedulerServiceBlock::class.java).`in`(Scopes.SINGLETON)
-
     }
 }

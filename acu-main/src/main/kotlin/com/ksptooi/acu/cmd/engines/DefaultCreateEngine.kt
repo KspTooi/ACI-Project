@@ -21,11 +21,10 @@ class DefaultCreateEngine:AcuEngine {
     }
 
     override fun engineFeatures(): List<Command> {
-        val list = arrayListOf(
+        return listOf(
             service.createFromTarget("create",this,"创建一个引擎命令")
             ,service.createFromTarget("remove",this,"移除一个引擎命令")
         )
-        return list
     }
 
 
@@ -44,6 +43,7 @@ class DefaultCreateEngine:AcuEngine {
             service.insertCmd(cmd)
             cliService.cliBMsg("命令创建成功! -> ${cmd.name}")
         }
+
 
         cmd.forTarget("remove")?.let {
 
