@@ -1,4 +1,4 @@
-package com.ksptooi.acu.service
+package com.ksptooi.acu.service.cmd
 
 import com.google.inject.Inject
 import com.google.inject.persist.Transactional
@@ -14,7 +14,7 @@ import java.util.*
 import javax.persistence.EntityManager
 import kotlin.Exception
 
-open class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager):CommandService {
+open class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager): CommandService {
 
     @Inject
     lateinit var mapper:CommandMapper

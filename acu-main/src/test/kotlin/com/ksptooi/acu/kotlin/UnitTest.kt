@@ -4,8 +4,8 @@ import com.google.inject.Guice
 import com.google.inject.Injector
 import com.ksptooi.acu.cmd.engines.DefaultSearchEngine
 import com.ksptooi.acu.module.ExportAcuMain
-import com.ksptooi.acu.service.CmdEngineService
-import com.ksptooi.acu.service.CommandService
+import com.ksptooi.acu.service.engine.CmdEngineService
+import com.ksptooi.acu.service.cmd.CommandService
 import com.ksptooi.mapper.CommandMapper
 import org.junit.Before
 import org.junit.Test
@@ -21,7 +21,7 @@ class UnitTest {
 
     lateinit var log:Logger
 
-    lateinit var engineService:CmdEngineService
+    lateinit var engineService: CmdEngineService
 
     @Before
     fun init(){

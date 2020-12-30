@@ -1,10 +1,11 @@
-package com.ksptooi.acu.service
+package com.ksptooi.acu.service.cmd
 
 import com.google.inject.Inject
 import com.ksptooi.acu.entity.command.CommandIO
+import com.ksptooi.acu.service.engine.CmdEngineService
 import org.slf4j.Logger
 
-class CmdSchedulerServiceBlock:CmdSchedulerService {
+class CmdSchedulerServiceBlock: CmdSchedulerService {
 
     @Inject
     lateinit var log: Logger

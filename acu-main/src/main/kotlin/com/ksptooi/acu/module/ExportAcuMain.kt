@@ -2,9 +2,14 @@ package com.ksptooi.acu.module
 
 import com.google.inject.AbstractModule
 import com.google.inject.Scopes
-import com.ksptooi.acu.service.*
 import com.ksptooi.acu.service.cli.CliService
 import com.ksptooi.acu.service.cli.CliServiceBlock
+import com.ksptooi.acu.service.cmd.CmdSchedulerService
+import com.ksptooi.acu.service.cmd.CmdSchedulerServiceBlock
+import com.ksptooi.acu.service.cmd.CommandService
+import com.ksptooi.acu.service.cmd.CommandServiceBlock
+import com.ksptooi.acu.service.engine.CmdEngineService
+import com.ksptooi.acu.service.engine.CmdEngineServiceBlock
 
 class ExportAcuMain:AbstractModule() {
 

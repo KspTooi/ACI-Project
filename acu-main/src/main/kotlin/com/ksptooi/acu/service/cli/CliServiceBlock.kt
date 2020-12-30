@@ -2,8 +2,8 @@ package com.ksptooi.acu.service.cli
 
 import com.google.inject.Inject
 import com.ksptooi.acu.StringExtends.getCommandIO
-import com.ksptooi.acu.service.CmdSchedulerService
-import com.ksptooi.acu.service.CommandService
+import com.ksptooi.acu.service.cmd.CmdSchedulerService
+import com.ksptooi.acu.service.cmd.CommandService
 import org.slf4j.Logger
 import java.io.BufferedReader
 
@@ -11,7 +11,7 @@ class CliServiceBlock:CliService {
 
 
     @Inject
-    lateinit var service:CommandService
+    lateinit var service: CommandService
 
     @Inject
     lateinit var log:Logger
