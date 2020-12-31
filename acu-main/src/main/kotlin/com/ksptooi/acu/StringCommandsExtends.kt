@@ -3,7 +3,7 @@ package com.ksptooi.acu
 import com.ksptooi.acu.entity.command.CommandIO
 import kotlin.jvm.Throws
 
-object StringExtends {
+object StringCommandsExtends {
 
 
 

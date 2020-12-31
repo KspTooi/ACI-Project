@@ -12,8 +12,6 @@ interface CommandService {
 
     fun create(name:String, engine:AcuEngine, desc:String): Command
 
-    fun createTarget(target: String):Target
-
     fun createFromTarget(target:String, engine:AcuEngine, desc:String): Command
 
     fun insertCmd(cmd:Command):Command;

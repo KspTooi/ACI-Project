@@ -2,6 +2,7 @@ package com.ksptooi.acu.service.cmd
 
 import com.google.inject.Inject
 import com.google.inject.persist.Transactional
+import com.ksptooi.acu.StringTargetExtends.getTarget
 import com.ksptooi.acu.cmd.engines.AcuEngine
 import com.ksptooi.acu.entity.command.Command
 import com.ksptooi.acu.entity.command.CommandIO
@@ -51,23 +52,9 @@ open class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager): Co
     }
 
 
-    override fun createTarget(target: String):Target {
-        val t = Target()
-        t.remove = 0
-        t.path = "empty"
-        t.file = "empty"
-        t.targetPoint = target
-        t.createTime = Date()
-        return t
-    }
-
-
     override fun createFromTarget(target: String, engine: AcuEngine, desc: String): Command {
-
         val cmd = this.create(target,engine,desc)
-
-        cmd.targets = arrayListOf(createTarget(target))
-
+        cmd.targets = arrayListOf(target.getTarget(engine))
         return cmd
     }
 

@@ -96,4 +96,18 @@ public class Target {
     public void setRemove(Integer remove) {
         this.remove = remove;
     }
+
+    @Override
+    public String toString() {
+        return "Target{" +
+                "id=" + id +
+                ", command=" + command +
+                ", path='" + path + '\'' +
+                ", file='" + file + '\'' +
+                ", targetPoint='" + targetPoint + '\'' +
+                ", model='" + model + '\'' +
+                ", createTime=" + createTime +
+                ", remove=" + remove +
+                '}';
+    }
 }

@@ -1,6 +1,7 @@
 package com.ksptooi.acu.cmd.engines
 
 import com.google.inject.Inject
+import com.ksptooi.acu.StringTargetExtends.getTarget
 import com.ksptooi.acu.entity.command.Command
 import com.ksptooi.acu.entity.command.CommandIO
 import com.ksptooi.acu.service.cmd.CommandService
@@ -37,7 +38,7 @@ class DefaultCreateEngine:AcuEngine {
             }
 
             val cmd = service.create(cio.param[0],cio.param[1],"用户创建的命令")
-            cmd.targets = arrayListOf(service.createTarget(cio.param[2]))
+            cmd.targets = arrayListOf(cio.param[2].getTarget())
 
             service.insertCmd(cmd)
             cliService.cliBMsg("命令创建成功! -> ${cmd.name}")

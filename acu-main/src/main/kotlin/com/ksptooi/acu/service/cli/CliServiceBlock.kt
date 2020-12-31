@@ -1,7 +1,7 @@
 package com.ksptooi.acu.service.cli
 
 import com.google.inject.Inject
-import com.ksptooi.acu.StringExtends.getCommandIO
+import com.ksptooi.acu.StringCommandsExtends.getCommandIO
 import com.ksptooi.acu.service.cmd.CmdSchedulerService
 import com.ksptooi.acu.service.cmd.CommandService
 import org.slf4j.Logger
