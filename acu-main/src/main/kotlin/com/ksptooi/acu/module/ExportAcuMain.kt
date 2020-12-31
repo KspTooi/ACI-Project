@@ -10,6 +10,8 @@ import com.ksptooi.acu.service.cmd.CommandService
 import com.ksptooi.acu.service.cmd.CommandServiceBlock
 import com.ksptooi.acu.service.engine.CmdEngineService
 import com.ksptooi.acu.service.engine.CmdEngineServiceBlock
+import com.ksptooi.acu.service.target.TargetService
+import com.ksptooi.acu.service.target.TargetServiceBlock
 
 class ExportAcuMain:AbstractModule() {
 
@@ -26,5 +28,6 @@ class ExportAcuMain:AbstractModule() {
         bind(CliService::class.java).to(CliServiceBlock::class.java).`in`(Scopes.SINGLETON)
         bind(CmdEngineService::class.java).to(CmdEngineServiceBlock::class.java).`in`(Scopes.SINGLETON)
         bind(CmdSchedulerService::class.java).to(CmdSchedulerServiceBlock::class.java).`in`(Scopes.SINGLETON)
+        bind(TargetService::class.java).to(TargetServiceBlock::class.java).`in`(Scopes.SINGLETON)
     }
 }

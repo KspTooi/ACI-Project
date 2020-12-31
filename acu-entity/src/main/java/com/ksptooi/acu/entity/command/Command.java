@@ -62,7 +62,7 @@ public class Command {
     public Target forTarget(String targetName){
 
         List<Target> targetStream = this.targets.stream()
-                .filter(f -> f.getTarget().equalsIgnoreCase(targetName)).collect(Collectors.toList());
+                .filter(f -> f.getTargetPoint().equalsIgnoreCase(targetName)).collect(Collectors.toList());
 
         if(targetStream.size()<1){
             return null;

@@ -56,7 +56,7 @@ open class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager): Co
         t.remove = 0
         t.path = "empty"
         t.file = "empty"
-        t.target = target
+        t.targetPoint = target
         t.createTime = Date()
         return t
     }

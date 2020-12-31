@@ -33,7 +33,11 @@ open class CommandMapperBlock:CommandMapper {
     }
 
     override fun getLikeName(name: String): List<Command> {
-        return em.createQuery("from Command where name like concat('%',${name},'%') and remove=0").resultList as List<Command>
+
+        val query = em.createQuery("from Command where name like concat('%',:likename,'%')")
+        query.setParameter("likename",name)
+
+        return query.resultList as List<Command>
     }
 
 

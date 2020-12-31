@@ -21,14 +21,16 @@ public class Target {
     private String file = null;
 
     @Column
-    private String target = null;
+    private String targetPoint = null;
+
+    @Column
+    private String model = null;
 
     @Column
     private Date createTime = null;
 
     @Column
     private Integer remove = 0;
-
 
 
     public Integer getId() {
@@ -63,12 +65,20 @@ public class Target {
         this.file = file;
     }
 
-    public String getTarget() {
-        return target;
+    public String getTargetPoint() {
+        return targetPoint;
     }
 
-    public void setTarget(String target) {
-        this.target = target;
+    public void setTargetPoint(String targetPoint) {
+        this.targetPoint = targetPoint;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public Date getCreateTime() {
@@ -81,19 +91,6 @@ public class Target {
 
     public Integer getRemove() {
         return remove;
-    }
-
-    @Override
-    public String toString() {
-        return "Target{" +
-                "id=" + id +
-                ", command=" + command +
-                ", path='" + path + '\'' +
-                ", file='" + file + '\'' +
-                ", target='" + target + '\'' +
-                ", createTime=" + createTime +
-                ", remove=" + remove +
-                '}';
     }
 
     public void setRemove(Integer remove) {
