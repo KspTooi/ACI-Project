@@ -1,13 +1,13 @@
-package com.ksptooi.acu.service.engine
+package com.ksptooi.acu.srv.engine
 
 import com.ksptooi.acu.InjectService
 import com.ksptooi.acu.cmd.engines.AcuEngine
-import com.ksptooi.acu.service.cmd.CommandService
+import com.ksptooi.acu.srv.cmd.CommandSrv
 import org.slf4j.Logger
 import java.lang.Exception
 import javax.inject.Inject
 
-class CmdEngineServiceBlock @Inject constructor(var log:Logger,var commandService: CommandService): CmdEngineService {
+class CmdEngineSrvBlock @Inject constructor(var log:Logger, var commandService: CommandSrv): CmdEngineSrv {
 
 
 

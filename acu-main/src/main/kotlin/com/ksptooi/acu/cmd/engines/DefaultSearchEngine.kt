@@ -3,20 +3,20 @@ package com.ksptooi.acu.cmd.engines
 import com.google.inject.Inject
 import com.ksptooi.acu.entity.command.Command
 import com.ksptooi.acu.entity.command.CommandIO
-import com.ksptooi.acu.service.engine.CmdEngineService
-import com.ksptooi.acu.service.cmd.CommandService
-import com.ksptooi.acu.service.cli.CliTable
-import com.ksptooi.acu.service.cli.CliTableExt.print
-import com.ksptooi.acu.service.cli.CliTableExt.printEngines
+import com.ksptooi.acu.srv.engine.CmdEngineSrv
+import com.ksptooi.acu.srv.cmd.CommandSrv
+import com.ksptooi.acu.srv.cli.CliTable
+import com.ksptooi.acu.srv.cli.CliTableExt.print
+import com.ksptooi.acu.srv.cli.CliTableExt.printEngines
 
 class DefaultSearchEngine:AcuEngine {
 
 
     @Inject
-    lateinit var service: CommandService
+    lateinit var service: CommandSrv
 
     @Inject
-    lateinit var engineService: CmdEngineService
+    lateinit var engineService: CmdEngineSrv
 
 
     override fun getName(): String {

@@ -1,4 +1,4 @@
-package com.ksptooi.acu.service.cli;
+package com.ksptooi.acu.srv.cli;
 
 import java.util.ArrayList;
 import java.util.Arrays;

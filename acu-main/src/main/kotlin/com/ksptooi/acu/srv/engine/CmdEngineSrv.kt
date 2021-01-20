@@ -1,4 +1,4 @@
-package com.ksptooi.acu.service.engine
+package com.ksptooi.acu.srv.engine
 
 import com.ksptooi.acu.cmd.engines.AcuEngine
 import kotlin.jvm.Throws
@@ -6,7 +6,7 @@ import kotlin.jvm.Throws
 /**
  * 提供命令引擎的注册,发现与调用
  */
-interface CmdEngineService {
+interface CmdEngineSrv {
 
 
     /**

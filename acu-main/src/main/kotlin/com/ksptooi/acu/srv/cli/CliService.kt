@@ -1,4 +1,4 @@
-package com.ksptooi.acu.service.cli
+package com.ksptooi.acu.srv.cli
 
 interface CliService {
 
@@ -11,7 +11,6 @@ interface CliService {
     fun cliConfirm():Boolean
 
     fun cliConfirm(msg:String):Boolean
-
 
 
     fun cliPMsg()

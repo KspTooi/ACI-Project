@@ -1,23 +1,23 @@
-package com.ksptooi.acu.service.cli
+package com.ksptooi.acu.srv.cli
 
 import com.google.inject.Inject
 import com.ksptooi.acu.StringCommandsExtends.getCommandIO
-import com.ksptooi.acu.service.cmd.CmdSchedulerService
-import com.ksptooi.acu.service.cmd.CommandService
+import com.ksptooi.acu.srv.cmd.CmdSchedulerSrv
+import com.ksptooi.acu.srv.cmd.CommandSrv
 import org.slf4j.Logger
 import java.io.BufferedReader
 
-class CliServiceBlock:CliService {
+class CliServiceBlock: CliService {
 
 
     @Inject
-    lateinit var service: CommandService
+    lateinit var service: CommandSrv
 
     @Inject
     lateinit var log:Logger
 
     @Inject
-    lateinit var cmdScheduler: CmdSchedulerService
+    lateinit var cmdScheduler: CmdSchedulerSrv
 
     @Inject
     lateinit var br:BufferedReader
@@ -36,7 +36,9 @@ class CliServiceBlock:CliService {
             val cio = cliInput().getCommandIO()
 
             try{
+
                 cmdScheduler.asyncSchedule(cio)
+
             }catch (e:Exception){
                 log.error(e.message)
             }

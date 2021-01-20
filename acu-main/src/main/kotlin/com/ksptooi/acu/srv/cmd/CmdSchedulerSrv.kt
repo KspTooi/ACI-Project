@@ -1,9 +1,9 @@
-package com.ksptooi.acu.service.cmd
+package com.ksptooi.acu.srv.cmd
 
 import com.ksptooi.acu.entity.command.CommandIO
 import kotlin.jvm.Throws
 
-interface CmdSchedulerService {
+interface CmdSchedulerSrv {
 
     /**
      * 异步调度命令

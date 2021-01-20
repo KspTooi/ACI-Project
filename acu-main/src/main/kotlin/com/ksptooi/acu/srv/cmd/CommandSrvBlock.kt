@@ -1,4 +1,4 @@
-package com.ksptooi.acu.service.cmd
+package com.ksptooi.acu.srv.cmd
 
 import com.google.inject.Inject
 import com.google.inject.persist.Transactional
@@ -6,7 +6,6 @@ import com.ksptooi.acu.StringTargetExtends.getTarget
 import com.ksptooi.acu.cmd.engines.AcuEngine
 import com.ksptooi.acu.entity.command.Command
 import com.ksptooi.acu.entity.command.CommandIO
-import com.ksptooi.acu.entity.command.Target
 import com.ksptooi.acu.jpa.mapper.AdvEntityManager
 import com.ksptooi.mapper.CommandMapper
 import org.slf4j.Logger
@@ -15,7 +14,7 @@ import java.util.*
 import javax.persistence.EntityManager
 import kotlin.Exception
 
-open class CommandServiceBlock @Inject constructor(var aem:AdvEntityManager): CommandService {
+open class CommandSrvBlock @Inject constructor(var aem:AdvEntityManager): CommandSrv {
 
     @Inject
     lateinit var mapper:CommandMapper

@@ -4,13 +4,13 @@ import com.google.inject.Inject
 import com.ksptooi.acu.StringTargetExtends.getTarget
 import com.ksptooi.acu.entity.command.Command
 import com.ksptooi.acu.entity.command.CommandIO
-import com.ksptooi.acu.service.cmd.CommandService
-import com.ksptooi.acu.service.cli.CliService
+import com.ksptooi.acu.srv.cmd.CommandSrv
+import com.ksptooi.acu.srv.cli.CliService
 
 class DefaultCreateEngine:AcuEngine {
 
     @Inject
-    lateinit var service: CommandService
+    lateinit var service: CommandSrv
 
 
     @Inject

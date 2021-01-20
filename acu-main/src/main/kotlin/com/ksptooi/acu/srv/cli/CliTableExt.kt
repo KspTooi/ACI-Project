@@ -1,4 +1,4 @@
-package com.ksptooi.acu.service.cli
+package com.ksptooi.acu.srv.cli
 
 import com.ksptooi.acu.cmd.engines.AcuEngine
 import com.ksptooi.acu.entity.command.Command

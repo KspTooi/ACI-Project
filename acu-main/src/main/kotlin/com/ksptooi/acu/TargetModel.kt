@@ -3,7 +3,6 @@ package com.ksptooi.acu
 enum class TargetModel constructor(value:String) {
 
 
-
     /*EngineFeature*/
     EFeature("engine_feature"),
 

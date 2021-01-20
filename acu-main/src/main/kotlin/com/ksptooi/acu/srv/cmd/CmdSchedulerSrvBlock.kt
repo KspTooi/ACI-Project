@@ -1,20 +1,20 @@
-package com.ksptooi.acu.service.cmd
+package com.ksptooi.acu.srv.cmd
 
 import com.google.inject.Inject
 import com.ksptooi.acu.entity.command.CommandIO
-import com.ksptooi.acu.service.engine.CmdEngineService
+import com.ksptooi.acu.srv.engine.CmdEngineSrv
 import org.slf4j.Logger
 
-class CmdSchedulerServiceBlock: CmdSchedulerService {
+class CmdSchedulerSrvBlock: CmdSchedulerSrv {
 
     @Inject
     lateinit var log: Logger
 
     @Inject
-    lateinit var engineService: CmdEngineService
+    lateinit var engineService: CmdEngineSrv
 
     @Inject
-    lateinit var cmdService: CommandService
+    lateinit var cmdService: CommandSrv
 
 
     override fun asyncSchedule(cio: CommandIO) {
@@ -24,6 +24,7 @@ class CmdSchedulerServiceBlock: CmdSchedulerService {
 
 
         log.info("ACU命令调度(ASYNC) -> ${cio}")
+
 
         //获取到数据库命令
         val dbCmd = cmdService.getCommand(cio)
