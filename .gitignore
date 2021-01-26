@@ -5,3 +5,6 @@
 **/.jar
 */target
 /target
+*rebel.xml
+**/rebel.xml
+*rebel.**
