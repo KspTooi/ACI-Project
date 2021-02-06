@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ksptooi</groupId>
-    <artifactId>acu-project</artifactId>
+    <artifactId>acu-system</artifactId>
     <packaging>pom</packaging>
     <version>1.0S</version>
     <modules>
