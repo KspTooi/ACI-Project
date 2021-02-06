@@ -1,6 +1,6 @@
 package com.ksptooi.acu.srv.cmd
 
-import com.ksptooi.acu.entity.command.CommandIO
+import com.ksptooi.acu.entity.cli.CommandInput
 import kotlin.jvm.Throws
 
 interface CmdSchedulerSrv {
@@ -9,11 +9,11 @@ interface CmdSchedulerSrv {
      * 异步调度命令
      */
     @Throws(Exception::class)
-    fun asyncSchedule(cio:CommandIO)
+    fun asyncSchedule(cio: CommandInput)
 
     /**
      * 同步调度命令
      */
-    fun schedule(cio: CommandIO):Boolean
+    fun schedule(cio: CommandInput):Boolean
 
 }

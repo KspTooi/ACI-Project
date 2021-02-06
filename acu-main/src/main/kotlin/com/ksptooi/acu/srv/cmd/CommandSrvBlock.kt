@@ -5,7 +5,7 @@ import com.google.inject.persist.Transactional
 import com.ksptooi.acu.StringTargetExtends.getTarget
 import com.ksptooi.acu.cmd.engines.AcuEngine
 import com.ksptooi.acu.entity.command.Command
-import com.ksptooi.acu.entity.command.CommandIO
+import com.ksptooi.acu.entity.cli.CommandInput
 import com.ksptooi.acu.jpa.mapper.AdvEntityManager
 import com.ksptooi.mapper.CommandMapper
 import org.slf4j.Logger
@@ -33,7 +33,6 @@ open class CommandSrvBlock @Inject constructor(var aem:AdvEntityManager): Comman
     override fun create(name: String, engine: String, desc: String): Command {
 
         val cmd = Command()
-
         cmd.name = name
         cmd.engine = engine
         cmd.description = desc
@@ -42,8 +41,8 @@ open class CommandSrvBlock @Inject constructor(var aem:AdvEntityManager): Comman
         cmd.createByAccount= - 1
         cmd.permissions = "all"
         cmd.remove = 0
-
         return cmd
+
     }
 
     override fun create(name: String, engine: AcuEngine, desc: String): Command {
@@ -79,7 +78,7 @@ open class CommandSrvBlock @Inject constructor(var aem:AdvEntityManager): Comman
         }
     }
 
-    override fun getCommand(cio: CommandIO): Command? {
+    override fun getCommand(cio: CommandInput): Command? {
         return this.getCommand(cio.name)
     }
 

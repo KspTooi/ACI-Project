@@ -1,8 +1,8 @@
-package com.ksptooi.acu.entity.command;
+package com.ksptooi.acu.entity.cli;
 
 import java.util.List;
 
-public class CommandIO {
+public class CommandInput {
 
     private String name = null;
 

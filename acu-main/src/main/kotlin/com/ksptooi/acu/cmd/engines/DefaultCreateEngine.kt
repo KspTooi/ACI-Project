@@ -3,7 +3,7 @@ package com.ksptooi.acu.cmd.engines
 import com.google.inject.Inject
 import com.ksptooi.acu.StringTargetExtends.getTarget
 import com.ksptooi.acu.entity.command.Command
-import com.ksptooi.acu.entity.command.CommandIO
+import com.ksptooi.acu.entity.cli.CommandInput
 import com.ksptooi.acu.srv.cmd.CommandSrv
 import com.ksptooi.acu.srv.cli.CliService
 
@@ -29,7 +29,7 @@ class DefaultCreateEngine:AcuEngine {
     }
 
 
-    override fun invoke(cio: CommandIO, cmd: Command): Boolean {
+    override fun invoke(cio: CommandInput, cmd: Command): Boolean {
 
         cmd.forTarget("create")?.let {
 

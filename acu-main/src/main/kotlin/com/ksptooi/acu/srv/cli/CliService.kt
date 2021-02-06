@@ -12,7 +12,6 @@ interface CliService {
 
     fun cliConfirm(msg:String):Boolean
 
-
     fun cliPMsg()
 
     fun cliMsg(msg:String)

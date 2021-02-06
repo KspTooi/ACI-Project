@@ -1,7 +1,7 @@
 package com.ksptooi.acu.srv.cmd
 
 import com.google.inject.Inject
-import com.ksptooi.acu.entity.command.CommandIO
+import com.ksptooi.acu.entity.cli.CommandInput
 import com.ksptooi.acu.srv.engine.CmdEngineSrv
 import org.slf4j.Logger
 
@@ -17,7 +17,7 @@ class CmdSchedulerSrvBlock: CmdSchedulerSrv {
     lateinit var cmdService: CommandSrv
 
 
-    override fun asyncSchedule(cio: CommandIO) {
+    override fun asyncSchedule(cio: CommandInput) {
 
         if(cio.name.isBlank())
             return
@@ -46,7 +46,7 @@ class CmdSchedulerSrvBlock: CmdSchedulerSrv {
 
     }
 
-    override fun schedule(cio: CommandIO): Boolean {
+    override fun schedule(cio: CommandInput): Boolean {
         TODO("Not yet implemented")
     }
 

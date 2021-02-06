@@ -2,7 +2,7 @@ package com.ksptooi.acu.cmd.engines
 
 import com.google.inject.Inject
 import com.ksptooi.acu.entity.command.Command
-import com.ksptooi.acu.entity.command.CommandIO
+import com.ksptooi.acu.entity.cli.CommandInput
 import com.ksptooi.acu.srv.engine.CmdEngineSrv
 import com.ksptooi.acu.srv.cmd.CommandSrv
 import com.ksptooi.acu.srv.cli.CliTable
@@ -35,7 +35,7 @@ class DefaultSearchEngine:AcuEngine {
     }
 
 
-    override fun invoke(cio: CommandIO,cmd:Command):Boolean {
+    override fun invoke(cio: CommandInput, cmd:Command):Boolean {
 
         cmd.forTarget("list")
             ?.let {

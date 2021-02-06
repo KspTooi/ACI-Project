@@ -4,15 +4,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "target")
+@Table(name = "targets")
 public class Target {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id = null;
 
-    @Column(name = "command")
-    private Integer command = null;
+    @Column(name = "cmd_id")
+    private Integer cmd_id = null;
 
     @Column
     private String path = null;
@@ -41,12 +41,12 @@ public class Target {
         this.id = id;
     }
 
-    public Integer getCommand() {
-        return command;
+    public Integer getCmd_id() {
+        return cmd_id;
     }
 
-    public void setCommand(Integer command) {
-        this.command = command;
+    public void setCmd_id(Integer command) {
+        this.cmd_id = command;
     }
 
     public String getPath() {
@@ -101,7 +101,7 @@ public class Target {
     public String toString() {
         return "Target{" +
                 "id=" + id +
-                ", command=" + command +
+                ", command=" + cmd_id +
                 ", path='" + path + '\'' +
                 ", file='" + file + '\'' +
                 ", targetPoint='" + targetPoint + '\'' +

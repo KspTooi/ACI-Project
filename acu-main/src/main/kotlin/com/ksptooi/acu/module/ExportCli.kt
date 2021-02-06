@@ -8,15 +8,14 @@ import java.io.InputStreamReader
 
 class ExportCli:AbstractModule() {
 
-    override fun configure() {
 
+    override fun configure() {
     }
 
     @Provides
     @Singleton
-    fun consoleInput():BufferedReader{
-        val br = BufferedReader(InputStreamReader(System.`in`))
-        return br;
+    fun consoleInput(): BufferedReader {
+        return BufferedReader(InputStreamReader(System.`in`));
     }
 
 }

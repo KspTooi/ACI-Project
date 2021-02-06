@@ -1,7 +1,7 @@
 package com.ksptooi.acu.cmd.engines
 
 import com.ksptooi.acu.entity.command.Command
-import com.ksptooi.acu.entity.command.CommandIO
+import com.ksptooi.acu.entity.cli.CommandInput
 
 interface AcuEngine {
 
@@ -13,7 +13,6 @@ interface AcuEngine {
     fun engineFeatures():List<Command>
 
     //引擎命令切入点
-    fun invoke(cio:CommandIO,cmd:Command):Boolean
-
+    fun invoke(cio: CommandInput, cmd:Command):Boolean
 
 }

@@ -1,6 +1,6 @@
 package com.ksptooi.acu
 
-import com.ksptooi.acu.entity.command.CommandIO
+import com.ksptooi.acu.entity.cli.CommandInput
 import kotlin.jvm.Throws
 
 object StringCommandsExtends {
@@ -10,9 +10,9 @@ object StringCommandsExtends {
     /**
      * 从字符串中获取CommandIO (InputObject)
      */
-    fun String.getCommandIO():CommandIO{
+    fun String.getCommandIO(): CommandInput {
 
-        val cio = CommandIO()
+        val cio = CommandInput()
         cio.name = this.getCommandName()
         cio.param = this.getParamList()
 

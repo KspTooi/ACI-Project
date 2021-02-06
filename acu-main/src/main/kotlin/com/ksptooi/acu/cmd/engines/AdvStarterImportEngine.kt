@@ -2,7 +2,7 @@ package com.ksptooi.acu.cmd.engines
 
 import com.google.inject.Inject
 import com.ksptooi.acu.entity.command.Command
-import com.ksptooi.acu.entity.command.CommandIO
+import com.ksptooi.acu.entity.cli.CommandInput
 import com.ksptooi.acu.srv.cmd.CommandSrv
 import com.ksptooi.acu.srv.engine.CmdEngineSrv
 import com.ksptooi.acu.srv.target.TargetSrv
@@ -19,7 +19,9 @@ class AdvStarterImportEngine:AcuEngine {
     @Inject
     lateinit var engineSrv:CmdEngineSrv
 
+
     lateinit var advStartEngine:AcuEngine
+
 
     override fun getName(): String {
         return "acu_engine_adv_starter_import"
@@ -31,7 +33,8 @@ class AdvStarterImportEngine:AcuEngine {
         )
     }
 
-    override fun invoke(cio: CommandIO, cmd: Command): Boolean {
+    override fun invoke(cio: CommandInput, cmd: Command): Boolean {
+
 
         advStartEngine = engineSrv.getEngine("acu_engine_adv_starter")
             ?:let {
@@ -46,11 +49,8 @@ class AdvStarterImportEngine:AcuEngine {
                 throw Exception("请输入参数. ex: auto>commandName,uri")
             }
 
-
-
             //构建命令
             val cmd = cmdSrv.create(cio.param[0],advStartEngine.getName(),"自动导入的命令")
-
 
             //构建目标点
             val target = targetSrv.forPath(cio.param[1])
@@ -58,9 +58,9 @@ class AdvStarterImportEngine:AcuEngine {
 
             cmdSrv.insertCmd(cmd)
 
-
             println("执行添加:${cio.param[0]}")
             println("执行添加:${cio.param[1]}")
+
 
         }
 

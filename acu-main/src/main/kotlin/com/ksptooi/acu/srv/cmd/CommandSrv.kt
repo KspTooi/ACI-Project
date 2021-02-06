@@ -2,8 +2,7 @@ package com.ksptooi.acu.srv.cmd
 
 import com.ksptooi.acu.cmd.engines.AcuEngine
 import com.ksptooi.acu.entity.command.Command
-import com.ksptooi.acu.entity.command.CommandIO
-import com.ksptooi.acu.entity.command.Target
+import com.ksptooi.acu.entity.cli.CommandInput
 import kotlin.jvm.Throws
 
 interface CommandSrv {
@@ -18,7 +17,7 @@ interface CommandSrv {
 
     fun getCommand(name: String): Command?
 
-    fun getCommand(cio:CommandIO): Command?
+    fun getCommand(cio: CommandInput): Command?
 
     fun getList():List<Command>
 
