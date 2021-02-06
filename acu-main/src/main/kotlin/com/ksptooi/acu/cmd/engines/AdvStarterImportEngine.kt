@@ -35,13 +35,11 @@ class AdvStarterImportEngine:AcuEngine {
 
     override fun invoke(cio: CommandInput, cmd: Command): Boolean {
 
-
         advStartEngine = engineSrv.getEngine("acu_engine_adv_starter")
             ?:let {
                 println("引擎故障! 需要前置引擎注册: acu_engine_adv_starter ")
                 return false
             }
-
 
         cmd.forTarget("auto")?.let {
 
@@ -60,7 +58,6 @@ class AdvStarterImportEngine:AcuEngine {
 
             println("执行添加:${cio.param[0]}")
             println("执行添加:${cio.param[1]}")
-
 
         }
 

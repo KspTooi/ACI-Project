@@ -4,11 +4,10 @@ enum class TargetModel constructor(value:String) {
 
 
     /*EngineFeature*/
-    EFeature("engine_feature"),
+    Engine("mode_engine"),
 
-    File("file"),
-
-    Directory("directory");
+    //指向其他文件或内容
+    Link("mode_link");
 
     val model = value
     val va = value

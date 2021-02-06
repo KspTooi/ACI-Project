@@ -18,7 +18,6 @@ open class AdvEntityManagerBlock @Inject constructor(persistService: PersistServ
     }
 
 
-
     override fun <T> setTarget(target: Class<T>): AdvEntityManager {
         this.target = target
         return this

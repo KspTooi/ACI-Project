@@ -38,7 +38,7 @@ open class CommandSrvBlock @Inject constructor(var aem:AdvEntityManager): Comman
         cmd.description = desc
         cmd.createTime = Date()
         cmd.updateTime = Date()
-        cmd.createByAccount= - 1
+        cmd.ownerId = - 1
         cmd.permissions = "all"
         cmd.remove = 0
         return cmd

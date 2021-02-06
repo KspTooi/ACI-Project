@@ -25,9 +25,7 @@ class TargetSrvBlock: TargetSrv {
 
         tgt.createTime = Date()
         tgt.remove = 0
-        tgt.model = TargetModel.File.va
-
-        tgt.path = path
+        tgt.model = TargetModel.Link.va
 
         return tgt
     }

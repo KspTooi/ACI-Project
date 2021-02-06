@@ -12,26 +12,37 @@ public class Target {
     private Integer id = null;
 
     @Column(name = "cmd_id")
-    private Integer cmd_id = null;
+    private Integer cmdId = null;
 
-    @Column
-    private String path = null;
-
-    @Column
-    private String file = null;
-
-    @Column
-    private String targetPoint = null;
-
+    //该目标指向的类型
+    // mode_engine 指向引擎
+    // mode_link 指向文件/文件夹或其他内容
     @Column
     private String model = null;
 
-    @Column
+    //表示实际的目标点
+    @Column(name = "target_point")
+    private String targetPoint = null;
+
+    //创建时间
+    @Column(name = "create_time")
     private Date createTime = null;
 
+    //逻辑删除 0=正常 1=移除
     @Column
     private Integer remove = 0;
 
+    @Override
+    public String toString() {
+        return "Target{" +
+                "id=" + id +
+                ", cmdId=" + cmdId +
+                ", model='" + model + '\'' +
+                ", targetPoint='" + targetPoint + '\'' +
+                ", createTime=" + createTime +
+                ", remove=" + remove +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -41,36 +52,12 @@ public class Target {
         this.id = id;
     }
 
-    public Integer getCmd_id() {
-        return cmd_id;
+    public Integer getCmdId() {
+        return cmdId;
     }
 
-    public void setCmd_id(Integer command) {
-        this.cmd_id = command;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public String getFile() {
-        return file;
-    }
-
-    public void setFile(String file) {
-        this.file = file;
-    }
-
-    public String getTargetPoint() {
-        return targetPoint;
-    }
-
-    public void setTargetPoint(String targetPoint) {
-        this.targetPoint = targetPoint;
+    public void setCmdId(Integer cmdId) {
+        this.cmdId = cmdId;
     }
 
     public String getModel() {
@@ -79,6 +66,14 @@ public class Target {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getTargetPoint() {
+        return targetPoint;
+    }
+
+    public void setTargetPoint(String targetPoint) {
+        this.targetPoint = targetPoint;
     }
 
     public Date getCreateTime() {
@@ -97,17 +92,6 @@ public class Target {
         this.remove = remove;
     }
 
-    @Override
-    public String toString() {
-        return "Target{" +
-                "id=" + id +
-                ", command=" + cmd_id +
-                ", path='" + path + '\'' +
-                ", file='" + file + '\'' +
-                ", targetPoint='" + targetPoint + '\'' +
-                ", model='" + model + '\'' +
-                ", createTime=" + createTime +
-                ", remove=" + remove +
-                '}';
-    }
 }
+
+

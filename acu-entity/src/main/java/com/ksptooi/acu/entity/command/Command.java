@@ -4,43 +4,69 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 @Entity
 @Table(name = "command")
 public class Command {
 
+    //主键ID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id = null;
 
+    //命令名称
     @Column
     private String name = null;
 
+    //所属引擎
     @Column
     private String engine = null;
 
+    //命令目标
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "command")
+    @JoinColumn(name = "cmd_id")
     private List<Target> targets = null;
 
+    //命令描述
     @Column
     private String description = null;
 
-    @Column
+    //创建时间
+    @Column(name = "create_time")
     private Date createTime = null;
 
-    @Column
+    //最后更新时间
+    @Column(name = "update_time")
     private Date updateTime = null;
 
-    @Column
-    private Integer createByAccount = null;
+    //所有者
+    @Column(name = "owner_id")
+    private Integer ownerId = null;
 
+    //权限节点
     @Column
     private String permissions = null;
 
+    //逻辑删除 0=正常 1=删除
     @Column
     private Integer remove = null;
+
+
+    //根据Target名称
+    //获取到该引擎的Target实例
+    public Target forTarget(String targetName){
+
+        List<Target> targetStream = this.targets.stream()
+                .filter(f -> f.getTargetPoint().equalsIgnoreCase(targetName)).collect(Collectors.toList());
+
+        if(targetStream.size()<1){
+            return null;
+        }
+
+        return targetStream.get(0);
+    }
+
 
     @Override
     public String toString() {
@@ -52,23 +78,10 @@ public class Command {
                 ", description='" + description + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
-                ", createByAccount=" + createByAccount +
+                ", ownerId=" + ownerId +
                 ", permissions='" + permissions + '\'' +
                 ", remove=" + remove +
                 '}';
-    }
-
-
-    public Target forTarget(String targetName){
-
-        List<Target> targetStream = this.targets.stream()
-                .filter(f -> f.getTargetPoint().equalsIgnoreCase(targetName)).collect(Collectors.toList());
-
-        if(targetStream.size()<1){
-            return null;
-        }
-
-        return targetStream.get(0);
     }
 
     public Integer getId() {
@@ -127,12 +140,12 @@ public class Command {
         this.updateTime = updateTime;
     }
 
-    public Integer getCreateByAccount() {
-        return createByAccount;
+    public Integer getOwnerId() {
+        return ownerId;
     }
 
-    public void setCreateByAccount(Integer createByAccount) {
-        this.createByAccount = createByAccount;
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getPermissions() {
@@ -150,4 +163,5 @@ public class Command {
     public void setRemove(Integer remove) {
         this.remove = remove;
     }
+
 }

@@ -16,8 +16,6 @@ object StringTargetExtends {
 
         val t = Target()
         t.model = model
-        t.file = "empty"
-        t.path = "empty"
         t.remove = 0
         t.targetPoint = this.replace("$model:","")
         t.createTime = Date()
@@ -31,9 +29,7 @@ object StringTargetExtends {
     fun String.getTarget(engine:AcuEngine):Target{
 
         val t = Target()
-        t.model = TargetModel.EFeature.va
-        t.file = "empty"
-        t.path = "empty"
+        t.model = TargetModel.Engine.va
         t.remove = 0
         t.targetPoint = this
         t.createTime = Date()
