@@ -21,13 +21,14 @@ class TargetSrvBlock: TargetSrv {
 
     override fun forPath(path: String): Target {
 
-        val tgt = Target()
+        val target = Target()
 
-        tgt.createTime = Date()
-        tgt.remove = 0
-        tgt.model = TargetModel.Link.va
+        target.createTime = Date()
+        target.remove = 0
+        target.model = TargetModel.Link.va
+        target.targetPoint = path
 
-        return tgt
+        return target
     }
 
 

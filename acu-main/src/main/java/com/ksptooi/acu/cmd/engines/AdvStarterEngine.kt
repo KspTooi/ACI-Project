@@ -5,6 +5,7 @@ import com.ksptooi.acu.entity.command.Command
 import com.ksptooi.acu.entity.cli.CommandInput
 import com.ksptooi.acu.srv.cli.CliService
 import com.ksptooi.acu.srv.cmd.CommandSrv
+import com.ksptooi.acu.srv.runtime.RuntimeSrv
 
 class AdvStarterEngine:AcuEngine {
 
@@ -14,6 +15,8 @@ class AdvStarterEngine:AcuEngine {
     @Inject
     lateinit var cliService: CliService
 
+    @Inject
+    lateinit var runtimeSrv:RuntimeSrv
 
     override fun getName(): String {
         return "acu_engine_adv_starter"
@@ -26,7 +29,10 @@ class AdvStarterEngine:AcuEngine {
     }
 
     override fun invoke(cio: CommandInput, cmd: Command): Boolean {
-        TODO("Not yet implemented")
+
+        runtimeSrv.runTarget(cmd.targets[0])
+
+        return true
     }
 
 

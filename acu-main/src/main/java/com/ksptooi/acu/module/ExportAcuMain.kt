@@ -10,6 +10,8 @@ import com.ksptooi.acu.srv.cmd.CommandSrv
 import com.ksptooi.acu.srv.cmd.CommandSrvBlock
 import com.ksptooi.acu.srv.engine.CmdEngineSrv
 import com.ksptooi.acu.srv.engine.CmdEngineSrvBlock
+import com.ksptooi.acu.srv.runtime.RuntimeSrv
+import com.ksptooi.acu.srv.runtime.RuntimeSrvBlock
 import com.ksptooi.acu.srv.target.TargetSrv
 import com.ksptooi.acu.srv.target.TargetSrvBlock
 
@@ -29,5 +31,6 @@ class ExportAcuMain:AbstractModule() {
         bind(CmdEngineSrv::class.java).to(CmdEngineSrvBlock::class.java).`in`(Scopes.SINGLETON)
         bind(CmdSchedulerSrv::class.java).to(CmdSchedulerSrvBlock::class.java).`in`(Scopes.SINGLETON)
         bind(TargetSrv::class.java).to(TargetSrvBlock::class.java).`in`(Scopes.SINGLETON)
+        bind(RuntimeSrv::class.java).to(RuntimeSrvBlock::class.java).`in`(Scopes.SINGLETON)
     }
 }

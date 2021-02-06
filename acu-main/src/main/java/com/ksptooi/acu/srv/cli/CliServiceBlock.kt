@@ -22,12 +22,12 @@ class CliServiceBlock: CliService {
     @Inject
     lateinit var br:BufferedReader
 
-    var prefix = "ACU:"
-
+    var prefix = "acu:"
 
     override fun runCli() {
 
         log.info("启动 - 辅助控制单元命令总线")
+        log.info("总线 - 等待指令输入")
 
         var inputText = "";
 
